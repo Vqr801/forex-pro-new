@@ -1,0 +1,12 @@
+{
+  "id": "./?app=forex-pro-new-independent-origin",
+  "name": "Forex Pro New - Independent App",
+  "short_name": "Forex Pro New",
+  "description": "Forex scanner app; independent from ProX Signal",
+  "start_url": "./index.html?app=forex-pro-new-independent-origin",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#08101d",
+  "theme_color": "#101a2b"
+}
