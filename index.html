@@ -6,9 +6,9 @@ body{margin:0;background:#08101d;color:#eef4ff;font:15px system-ui}main{max-widt
 <section class="box"><b>Auto Scan</b><div class="row"><button id="auto">Auto Scan चालू करें</button></div><div id="ast" class="info">ऑटो स्कैन बंद है। चालू करने पर चुनी गई Candle के CLOSE के तुरंत बाद स्कैन होगा।</div></section>
 <section class="box"><button id="scan">अभी स्कैन करें</button><div id="status" class="info">API Key दर्ज करके स्कैन करें।</div><div id="out" class="grid"></div></section>
 <p class="info">केवल Breakout / Retest / Reversal फ़िल्टर। यह तकनीकी अनुमान है, जीत की गारंटी नहीं। Demo पर जाँचें; ऑटो ट्रेड नहीं लगाता।</main>
-<script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.0/signalr.min.js"></script><script>
 const $=x=>document.getElementById(x),pairs=['EUR/USD','USD/JPY','GBP/USD','USD/CAD','AUD/USD'];let busy=false,auto=false,timer=null;
-try{$('key').value=localStorage.getItem('fxpro_new_key')||''}catch(e){}
+
 let wsock=null,wsRetry=null,wsBars={},wsActive={},wsLast={},wsConnected=false,wsSuccess=[];
 const biqSymbols={'EUR/USD':'EURUSD','USD/JPY':'USDJPY','GBP/USD':'GBPUSD','USD/CAD':'USDCAD','AUD/USD':'AUDUSD'};
 function renderWsDiag(){let lines=['BiQuote SignalR: '+(wsConnected?'CONNECTED':'कनेक्शन हो रहा है')];for(let p of pairs)lines.push(p+': '+(wsLast[p]?'LIVE · '+new Date(wsLast[p]).toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit',second:'2-digit',timeZone:'Asia/Kolkata'})+' IST':'टिक की प्रतीक्षा'));$('wsdiag').textContent=lines.join(String.fromCharCode(10))}
